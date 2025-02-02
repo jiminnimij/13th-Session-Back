@@ -15,7 +15,7 @@ def detail(request, post_id):
 
 def new(request):
     form=Postform() #form이라는 이름으로 폼 객체 선언
-    return render(request, 'new.html')
+    return render(request, 'new.html', {'form': form})
 
 def create(request):
     form = Postform(request.POST, request.FILES)
