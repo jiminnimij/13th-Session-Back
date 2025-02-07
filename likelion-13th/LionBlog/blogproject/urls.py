@@ -21,12 +21,16 @@ import blog.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',blog.views.home, name='home'),
+    path('', blog.views.home, name='home'),
     path('blog/<int:post_id>', blog.views.detail, name="detail"),
-    path('new/', blog.views.new,name="new"),
+    path('new/', blog.views.new, name="new"),
     path('create/', blog.views.create, name="create"),
     path('delete/<int:post_id>', blog.views.delete, name='delete'),
-    path('update_page/<int:post_id>', blog.views.update_page,name='update_page'),
+    path('update_page/<int:post_id>', blog.views.update_page, name='update_page'),
     path('update/<int:post_id>', blog.views.update, name='update2'),
     path('<int:post_id>/comment', blog.views.add_comment, name='add_comment'),
+    path('accounts/login', accounts.views.login_view, name="login"),
+    path('accounts/logout', accounts.views.logout_view, name="logout"),
+    path('accounts/signup', accounts.views.signup_view, name="signup"),
+
 ]
