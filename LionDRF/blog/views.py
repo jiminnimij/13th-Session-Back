@@ -5,9 +5,12 @@ from rest_framework.response import Response
 from django.http import Http404
 from .models import *
 from .serializers import *
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class PostList(views.APIView):
+
+    permission_classes = [IsAuthenticated]
     def get(self, request, format=None):
         post = Post.objects.all()
         serializer = PostSerializer(post, many=True)
